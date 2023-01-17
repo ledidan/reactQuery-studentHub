@@ -24,9 +24,10 @@ export default function StudentsPage() {
   const queryString: { page?: string } = useQueryString()
   const page = Number(queryString.page) || 1
 
-  const { data, isLoading, fetchStatus } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['students', page],
-    queryFn: () => getStudent(page, 10)
+    queryFn: () => getStudent(page, 10),
+    keepPreviousData: true
   })
 
   const totalStudent = Number(data?.headers['x-total-count']) || 0
