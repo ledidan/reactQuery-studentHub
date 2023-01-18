@@ -35,7 +35,13 @@ export default function StudentsPage() {
 
   return (
     <div>
-      <h1 className='text-lg'>Students</h1>
+      <h1 className='mb-4 text-lg '>Students</h1>
+      <Link
+        to='/students/add'
+        className='rounded border border-gray-400 bg-white py-2 px-4 font-semibold text-gray-800 shadow hover:bg-gray-100'
+      >
+        Add Student
+      </Link>
       {isLoading && (
         <div role='status' className='mt-6 animate-pulse'>
           <div className='mb-4 h-4  rounded bg-gray-200 dark:bg-gray-700' />
@@ -96,7 +102,7 @@ export default function StudentsPage() {
                     <td className='py-4 px-6'>{student.email}</td>
                     <td className='py-4 px-6 text-right'>
                       <Link
-                        to='/students/1'
+                        to={`/students/${student.id}`}
                         className='mr-5 font-medium text-blue-600 hover:underline dark:text-blue-500'
                       >
                         Edit
